@@ -1,0 +1,1161 @@
+
+                        <!DOCTYPE html>
+                        <html lang="en">
+                        <head>
+                            <meta charset="UTF-8">
+                            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+							<style>
+								body {
+									background-color: white; /* Ensure the iframe has a white background */
+								}
+
+								
+							</style>
+                        </head>
+                        <body>
+                            <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Diagnosis & Differential — Cholecalciferol Toxicology</title>
+<style>
+
+  /* ── Reset & Base ── */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --white:        #ffffff;
+    --sage:         #cbd2c8;
+    --teal:         #66b2b2;
+    --teal-dark:    #3d8a8a;
+    --teal-darker:  #2a6666;
+    --sage-dark:    #8a9688;
+    --bg:           #1a2e2e;
+    --bg-card:      #1f3535;
+    --bg-deep:      #132525;
+    --bg-deeper:    #0e1f1f;
+    --amber:        #e8a020;
+    --amber-light:  #f5c842;
+    --amber-bg:     rgba(232,160,32,0.08);
+    --amber-border: rgba(232,160,32,0.3);
+    --green-border: #52b788;
+    --green-text:   #b7e4c7;
+    --green-bg:     rgba(82,183,136,0.1);
+    --red-border:   #e07070;
+    --red-text:     #ffc8c8;
+    --red-bg:       rgba(224,112,112,0.08);
+    --teal-bg:      rgba(102,178,178,0.08);
+    --teal-border:  rgba(102,178,178,0.3);
+    --focus:        #66b2b2;
+  }
+
+  body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--white);
+    min-height: 100vh;
+    padding: 0;
+    margin: 0;
+  }
+
+  /* ── Screen System ── */
+  .screen {
+    display: none;
+    min-height: 100vh;
+    padding: 40px 24px 80px;
+    max-width: 800px;
+    margin: 0 auto;
+    animation: fadeIn 0.4s ease;
+  }
+
+  .screen.active { display: block; }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── Bottom Nav ── */
+  .bottom-nav {
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    height: 60px;
+    background: rgba(19,37,37,0.97);
+    border-top: 1px solid rgba(102,178,178,0.15);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 24px;
+    z-index: 100;
+    backdrop-filter: blur(8px);
+  }
+
+  .nav-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 22px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    border: none;
+    font-family: inherit;
+    letter-spacing: 0.04em;
+    transition: all 0.2s;
+  }
+
+  .nav-btn:focus-visible {
+    outline: 2.5px solid var(--focus);
+    outline-offset: 2px;
+  }
+
+  .btn-prev {
+    background: transparent;
+    color: var(--sage);
+    border: 1.5px solid rgba(203,210,200,0.2);
+  }
+  .btn-prev:hover { color: var(--white); border-color: var(--sage); }
+  .btn-prev:disabled { opacity: 0.3; cursor: default; }
+
+  .btn-next {
+    background: var(--teal-dark);
+    color: var(--white);
+  }
+  .btn-next:hover { background: var(--teal); color: #0a1f1f; transform: translateY(-1px); }
+  .btn-next:disabled { opacity: 0.3; cursor: default; }
+
+  .nav-indicator {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .nav-dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: rgba(203,210,200,0.2);
+    border: 1px solid rgba(203,210,200,0.3);
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .nav-dot.active {
+    background: var(--teal);
+    border-color: var(--teal);
+    transform: scale(1.3);
+  }
+
+  .nav-dot.done {
+    background: var(--teal-dark);
+    border-color: var(--teal-dark);
+  }
+
+  /* ── Typography ── */
+  .screen-tag {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--teal);
+    background: rgba(102,178,178,0.12);
+    border: 1px solid rgba(102,178,178,0.35);
+    padding: 4px 14px;
+    border-radius: 4px;
+    margin-bottom: 14px;
+  }
+
+  h1 {
+    font-size: clamp(22px, 4vw, 32px);
+    font-weight: 800;
+    color: var(--white);
+    line-height: 1.2;
+    margin-bottom: 8px;
+  }
+
+  h2 {
+    font-size: clamp(16px, 2.5vw, 20px);
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 10px;
+  }
+
+  h3 {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--teal);
+    margin-bottom: 10px;
+  }
+
+  .lead {
+    font-size: 15px;
+    color: var(--sage);
+    line-height: 1.65;
+    margin-bottom: 24px;
+    max-width: 640px;
+  }
+
+  /* ── Cards ── */
+  .card {
+    background: var(--bg-card);
+    border: 1px solid rgba(102,178,178,0.15);
+    border-radius: 12px;
+    padding: 20px 22px;
+    margin-bottom: 16px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .card-accent {
+    border-left: 3px solid var(--teal);
+  }
+
+  .card-amber {
+    border-left: 3px solid var(--amber);
+    background: rgba(232,160,32,0.05);
+    border-color: var(--amber-border);
+  }
+
+  /* ── Lab Report ── */
+  .lab-report {
+    background: var(--bg-deeper);
+    border: 1px solid rgba(102,178,178,0.15);
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 16px;
+  }
+
+  .lab-header {
+    background: linear-gradient(135deg, #0e2a2a, #0e1f1f);
+    padding: 14px 22px;
+    border-bottom: 1px solid rgba(102,178,178,0.15);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .lab-header-title { font-size: 13px; font-weight: 700; color: var(--teal); margin-bottom: 2px; }
+  .lab-header-sub   { font-size: 12px; color: var(--sage-dark); }
+  .lab-header-alert { font-size: 12px; font-weight: 700; color: var(--amber); }
+
+  .lab-row {
+    display: flex;
+    align-items: center;
+    padding: 13px 22px;
+    border-bottom: 1px solid rgba(102,178,178,0.07);
+    cursor: pointer;
+    transition: background 0.15s;
+    gap: 10px;
+  }
+
+  .lab-row:last-child { border-bottom: none; }
+  .lab-row:hover { background: rgba(102,178,178,0.05); }
+
+  .lab-row:focus-visible {
+    outline: 2px solid var(--focus);
+    outline-offset: -2px;
+  }
+
+  .lab-name {
+    flex: 1;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--white);
+  }
+
+  .lab-name-sub {
+    font-size: 11px;
+    color: var(--sage-dark);
+    font-weight: 400;
+    display: block;
+    margin-top: 1px;
+  }
+
+  .lab-value {
+    font-size: 14px;
+    font-weight: 700;
+    min-width: 130px;
+    text-align: right;
+  }
+
+  .val-critical { color: #ff6b6b; }
+  .val-warning  { color: var(--amber); }
+  .val-normal   { color: var(--green-text); }
+
+  .lab-icon { font-size: 16px; flex-shrink: 0; }
+
+  .lab-expand {
+    display: none;
+    padding: 12px 22px 14px;
+    background: rgba(102,178,178,0.05);
+    border-top: 1px solid rgba(102,178,178,0.1);
+    font-size: 13px;
+    color: var(--sage);
+    line-height: 1.6;
+    animation: fadeIn 0.2s ease;
+  }
+
+  .lab-expand.open { display: block; }
+
+  .lab-expand strong { color: var(--white); }
+  .lab-expand .key-value { color: var(--teal); font-weight: 700; }
+
+  .expand-hint {
+    font-size: 10px;
+    color: var(--sage-dark);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    flex-shrink: 0;
+    transition: color 0.2s;
+  }
+
+  .lab-row:hover .expand-hint { color: var(--teal); }
+  .lab-row.open-row .expand-hint { color: var(--teal); }
+
+  /* ── Sequence Visual ── */
+  .sequence-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 14px;
+  }
+
+  .seq-step {
+    flex: 1;
+    min-width: 120px;
+    background: var(--bg-deep);
+    border-radius: 10px;
+    padding: 14px 16px;
+    text-align: center;
+    border: 1px solid rgba(102,178,178,0.15);
+  }
+
+  .seq-step-num {
+    font-size: 20px;
+    margin-bottom: 6px;
+  }
+
+  .seq-step-label {
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+
+  .seq-step-val {
+    font-size: 12px;
+    color: var(--sage-dark);
+  }
+
+  .seq-arrow {
+    font-size: 20px;
+    color: var(--teal);
+    flex-shrink: 0;
+  }
+
+  /* ── Comparison Table ── */
+  .compare-wrap {
+    overflow-x: auto;
+    border-radius: 12px;
+    margin-bottom: 16px;
+  }
+
+  .compare-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    min-width: 480px;
+  }
+
+  .compare-table thead tr {
+    background: var(--bg-deeper);
+  }
+
+  .compare-table th {
+    padding: 13px 18px;
+    text-align: left;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border-bottom: 2px solid rgba(102,178,178,0.2);
+    color: var(--sage-dark);
+  }
+
+  .compare-table th.th-chol { color: var(--teal); }
+  .compare-table th.th-eg   {
+    color: var(--sage-dark);
+    cursor: pointer;
+    transition: color 0.2s;
+    user-select: none;
+  }
+  .compare-table th.th-eg:hover { color: var(--amber); }
+  .compare-table th.th-eg.revealed { color: var(--amber); cursor: default; }
+
+  .compare-table td {
+    padding: 13px 18px;
+    border-bottom: 1px solid rgba(102,178,178,0.07);
+    color: var(--sage);
+    vertical-align: middle;
+  }
+
+  .compare-table tr:last-child td { border-bottom: none; }
+  .compare-table tr:hover td { background: rgba(102,178,178,0.03); }
+
+  .td-finding { font-weight: 600; color: var(--white); font-size: 13px; }
+  .td-chol    { color: var(--teal); font-weight: 700; }
+  .td-normal  { color: var(--green-text); font-weight: 600; }
+
+  .eg-cell {
+    filter: blur(5px);
+    user-select: none;
+    transition: filter 0.4s ease;
+    color: var(--amber);
+    font-weight: 700;
+  }
+
+  .eg-cell.revealed { filter: none; }
+
+  .reveal-prompt {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 18px;
+    background: var(--amber-bg);
+    border: 1px dashed var(--amber-border);
+    border-radius: 8px;
+    font-size: 13px;
+    color: var(--amber);
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+    margin-bottom: 16px;
+  }
+
+  .reveal-prompt:hover { background: rgba(232,160,32,0.12); }
+  .reveal-prompt:focus-visible { outline: 2.5px solid var(--focus); outline-offset: 2px; }
+  .reveal-prompt.hidden-prompt { display: none; }
+
+  /* ── DDX Accordion ── */
+  .ddx-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 16px;
+  }
+
+  .ddx-item {
+    background: var(--bg-card);
+    border: 1px solid rgba(102,178,178,0.15);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: border-color 0.2s;
+  }
+
+  .ddx-item:hover { border-color: rgba(102,178,178,0.35); }
+  .ddx-item.open  { border-color: var(--teal-dark); }
+
+  .ddx-trigger {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 18px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    text-align: left;
+    transition: background 0.15s;
+  }
+
+  .ddx-trigger:hover { background: rgba(102,178,178,0.04); }
+
+  .ddx-trigger:focus-visible {
+    outline: 2px solid var(--focus);
+    outline-offset: -2px;
+  }
+
+  .ddx-icon  { font-size: 20px; flex-shrink: 0; }
+  .ddx-label { flex: 1; font-size: 14px; font-weight: 600; color: var(--white); line-height: 1.3; }
+  .ddx-sub   { font-size: 11px; color: var(--sage-dark); font-weight: 400; display: block; margin-top: 2px; }
+
+  .ddx-chevron {
+    font-size: 18px;
+    color: var(--teal);
+    transition: transform 0.25s ease;
+    flex-shrink: 0;
+    line-height: 1;
+  }
+
+  .ddx-item.open .ddx-chevron { transform: rotate(180deg); }
+
+  .ddx-body {
+    display: none;
+    padding: 0 18px 16px 18px;
+    font-size: 13px;
+    color: var(--sage);
+    line-height: 1.65;
+    border-top: 1px solid rgba(102,178,178,0.1);
+    margin: 0 18px;
+    padding-top: 14px;
+    animation: fadeIn 0.2s ease;
+  }
+
+  .ddx-item.open .ddx-body { display: block; }
+
+  .key-diff-badge {
+    display: inline-block;
+    background: rgba(102,178,178,0.1);
+    color: var(--teal);
+    border: 1px solid rgba(102,178,178,0.3);
+    padding: 2px 10px;
+    border-radius: 4px;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 8px;
+  }
+
+  .ddx-body strong { color: var(--white); }
+  .ddx-body .highlight { color: var(--teal); font-weight: 700; }
+  .ddx-body .warn      { color: var(--amber); font-weight: 700; }
+  .ddx-body .danger    { color: #ff6b6b; font-weight: 700; }
+
+  /* ── Callout ── */
+  .callout {
+    background: var(--amber-bg);
+    border: 1px solid var(--amber-border);
+    border-left: 3px solid var(--amber);
+    border-radius: 0 8px 8px 0;
+    padding: 12px 16px;
+    font-size: 13px;
+    color: #e8c07a;
+    line-height: 1.55;
+    margin-bottom: 16px;
+  }
+
+  .callout-teal {
+    background: var(--teal-bg);
+    border: 1px solid var(--teal-border);
+    border-left: 3px solid var(--teal);
+    border-radius: 0 8px 8px 0;
+    padding: 12px 16px;
+    font-size: 13px;
+    color: var(--sage);
+    line-height: 1.55;
+    margin-bottom: 16px;
+  }
+
+  .callout strong, .callout-teal strong { color: var(--white); }
+
+  /* ── Divider ── */
+  .divider {
+    height: 1px;
+    background: rgba(203,210,200,0.1);
+    margin: 20px 0;
+  }
+
+  /* ── Histology Banner ── */
+  .histo-banner {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 14px 0;
+  }
+
+  .histo-organ {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--bg-deep);
+    border: 1px solid rgba(102,178,178,0.15);
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-size: 13px;
+    color: var(--sage);
+    font-weight: 600;
+    flex: 1;
+    min-width: 120px;
+  }
+
+  .histo-organ-icon { font-size: 20px; }
+
+  /* ── Responsive ── */
+  @media (max-width: 560px) {
+    .screen { padding: 28px 16px 80px; }
+    .lab-header { flex-direction: column; align-items: flex-start; }
+    .seq-step { min-width: 100px; }
+    .compare-table th, .compare-table td { padding: 10px 12px; font-size: 12px; }
+  }
+
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- SCREEN 1 — DIAGNOSIS                   -->
+<!-- ═══════════════════════════════════════ -->
+<div class="screen active" id="screen-1" role="main" aria-label="Diagnosing Cholecalciferol Toxicity">
+
+  <div class="screen-tag">Diagnosis</div>
+  <h1>Diagnosing Cholecalciferol Toxicity</h1>
+  <p class="lead">
+    Diagnosis is based on <strong style="color:var(--white);">history of ingestion</strong>,
+    <strong style="color:var(--white);">clinical signs</strong>, and
+    <strong style="color:var(--white);">hypercalcemia</strong>.
+    Click each lab row to understand its diagnostic significance.
+  </p>
+
+  <!-- Lab Report -->
+  <div class="lab-report" role="region" aria-label="Laboratory results">
+
+    <div class="lab-header">
+      <div>
+        <div class="lab-header-title">VETERINARY DIAGNOSTIC LABORATORY</div>
+        <div class="lab-header-sub">Patient: Buddy &nbsp;|&nbsp; Canine &nbsp;|&nbsp; Labrador &nbsp;|&nbsp; 2 years</div>
+      </div>
+      <div class="lab-header-alert">⚠ Critical Values Present</div>
+    </div>
+
+    <!-- Row 1 -->
+    <div
+      class="lab-row"
+      id="row-1"
+      onclick="toggleLab(1)"
+      role="button"
+      tabindex="0"
+      aria-expanded="false"
+      aria-controls="expand-1"
+      onkeydown="keyRow(event,1)"
+    >
+      <span class="lab-icon" aria-hidden="true">📈</span>
+      <span class="lab-name">
+        Serum Phosphorus
+        <span class="lab-name-sub">Rises before calcium — key early marker</span>
+      </span>
+      <span class="lab-value val-warning">9.1 mg/dL ↑</span>
+      <span class="expand-hint" aria-hidden="true">tap ▾</span>
+    </div>
+    <div class="lab-expand" id="expand-1" role="region" aria-label="Phosphorus explanation">
+      <strong>Rises first — earliest detectable abnormality.</strong><br>
+      The critical threshold is <span class="key-value">&gt;8 mg/dL</span>. In cholecalciferol toxicosis, phosphorus elevation <em>precedes</em> the calcium rise — this temporal sequence is diagnostically important and helps distinguish this toxicosis from other causes of hypercalcemia. Monitor phosphorus closely in early suspected cases even before calcium becomes overtly elevated.
+    </div>
+
+    <!-- Row 2 -->
+    <div
+      class="lab-row"
+      id="row-2"
+      onclick="toggleLab(2)"
+      role="button"
+      tabindex="0"
+      aria-expanded="false"
+      aria-controls="expand-2"
+      onkeydown="keyRow(event,2)"
+    >
+      <span class="lab-icon" aria-hidden="true">🔴</span>
+      <span class="lab-name">
+        Total Calcium
+        <span class="lab-name-sub">Normal canine range: 9–11 mg/dL</span>
+      </span>
+      <span class="lab-value val-critical">15.2 mg/dL ↑↑</span>
+      <span class="expand-hint" aria-hidden="true">tap ▾</span>
+    </div>
+    <div class="lab-expand" id="expand-2" role="region" aria-label="Calcium explanation">
+      <strong>Critically elevated — above the 13 mg/dL diagnostic threshold.</strong><br>
+      A total calcium above <span class="key-value">13 mg/dL</span> confirms significant hypercalcemia. At 15.2 mg/dL, tissue mineralization is a real and immediate risk. Calculate the product: <span class="key-value">Ca × P = 15.2 × 9.1 = 138 mg/L</span> — well above the critical threshold of 70 mg/L at which soft tissue mineralization occurs.
+    </div>
+
+    <!-- Row 3 -->
+    <div
+      class="lab-row"
+      id="row-3"
+      onclick="toggleLab(3)"
+      role="button"
+      tabindex="0"
+      aria-expanded="false"
+      aria-controls="expand-3"
+      onkeydown="keyRow(event,3)"
+    >
+      <span class="lab-icon" aria-hidden="true">🔬</span>
+      <span class="lab-name">
+        Parathyroid Hormone (PTH)
+        <span class="lab-name-sub">Critical differentiating finding</span>
+      </span>
+      <span class="lab-value val-critical">Low / Suppressed</span>
+      <span class="expand-hint" aria-hidden="true">tap ▾</span>
+    </div>
+    <div class="lab-expand" id="expand-3" role="region" aria-label="PTH explanation">
+      <strong>Suppressed PTH with high calcium — a key differentiator.</strong><br>
+      The parathyroid gland senses elevated serum calcium and responds by suppressing PTH. This is a normal feedback response — but in the context of toxicosis, it distinguishes cholecalciferol poisoning from <span class="key-value">primary hyperparathyroidism</span>, where PTH would be inappropriately elevated despite high calcium. Low PTH + high calcium = toxicosis or malignancy, not primary hyperparathyroidism.
+    </div>
+
+    <!-- Row 4 -->
+    <div
+      class="lab-row"
+      id="row-4"
+      onclick="toggleLab(4)"
+      role="button"
+      tabindex="0"
+      aria-expanded="false"
+      aria-controls="expand-4"
+      onkeydown="keyRow(event,4)"
+    >
+      <span class="lab-icon" aria-hidden="true">🫘</span>
+      <span class="lab-name">
+        BUN &amp; Creatinine
+        <span class="lab-name-sub">Renal function markers</span>
+      </span>
+      <span class="lab-value val-warning">Both Elevated</span>
+      <span class="expand-hint" aria-hidden="true">tap ▾</span>
+    </div>
+    <div class="lab-expand" id="expand-4" role="region" aria-label="BUN and creatinine explanation">
+      <strong>Azotemia confirms acute kidney injury (AKI).</strong><br>
+      Calcium deposits in renal tubules directly impair glomerular filtration and tubular function. Elevated BUN and creatinine indicate that nephrotoxicity is already underway. Serial monitoring every 12–24 hours during hospitalization is essential. IV fluid diuresis is urgently needed to protect remaining renal function and promote calcium excretion.
+    </div>
+
+    <!-- Row 5 -->
+    <div
+      class="lab-row"
+      id="row-5"
+      onclick="toggleLab(5)"
+      role="button"
+      tabindex="0"
+      aria-expanded="false"
+      aria-controls="expand-5"
+      onkeydown="keyRow(event,5)"
+    >
+      <span class="lab-icon" aria-hidden="true">💧</span>
+      <span class="lab-name">
+        Urine Specific Gravity
+        <span class="lab-name-sub">With calciuria present</span>
+      </span>
+      <span class="lab-value val-warning">Low — Isosthenuria</span>
+      <span class="expand-hint" aria-hidden="true">tap ▾</span>
+    </div>
+    <div class="lab-expand" id="expand-5" role="region" aria-label="Urine specific gravity explanation">
+      <strong>Kidneys unable to concentrate urine — tubular dysfunction confirmed.</strong><br>
+      Low specific gravity (approximately 1.008–1.012) reflects hypercalcemia-induced nephrogenic diabetes insipidus-like syndrome. <span class="key-value">Calciuria</span> — calcium in the urine — is also present, providing direct evidence of calcium overflow from the bloodstream into the urinary tract and further confirming the diagnosis.
+    </div>
+
+    <!-- Row 6 -->
+    <div
+      class="lab-row"
+      id="row-6"
+      onclick="toggleLab(6)"
+      role="button"
+      tabindex="0"
+      aria-expanded="false"
+      aria-controls="expand-6"
+      onkeydown="keyRow(event,6)"
+    >
+      <span class="lab-icon" aria-hidden="true">☀️</span>
+      <span class="lab-name">
+        25-Hydroxycholecalciferol
+        <span class="lab-name-sub">Detectable in bile and kidney tissue</span>
+      </span>
+      <span class="lab-value val-critical">Elevated</span>
+      <span class="expand-hint" aria-hidden="true">tap ▾</span>
+    </div>
+    <div class="lab-expand" id="expand-6" role="region" aria-label="Hydroxycholecalciferol explanation">
+      <strong>Confirmatory finding — definitive when exposure history is uncertain.</strong><br>
+      High levels of 25-hydroxycholecalciferol and its active metabolite in bile and kidney tissue confirm the diagnosis definitively. This test is particularly valuable when the owner is unsure of the exposure source. Note: results are not always immediately available — clinical diagnosis and treatment should not be delayed while waiting for this result.
+    </div>
+
+  </div>
+
+  <!-- Sequence Visual -->
+  <div class="card card-accent">
+    <h3>Diagnostic Sequence — What Rises First?</h3>
+    <div class="sequence-row">
+      <div class="seq-step" style="border-color:rgba(232,160,32,0.3);">
+        <div class="seq-step-num">1️⃣</div>
+        <div class="seq-step-label" style="color:var(--amber);">Phosphorus rises</div>
+        <div class="seq-step-val">&gt;8 mg/dL — early indicator</div>
+      </div>
+      <div class="seq-arrow" aria-hidden="true">→</div>
+      <div class="seq-step" style="border-color:rgba(224,112,112,0.3);">
+        <div class="seq-step-num">2️⃣</div>
+        <div class="seq-step-label" style="color:#ff6b6b;">Calcium follows</div>
+        <div class="seq-step-val">&gt;13 mg/dL total calcium</div>
+      </div>
+      <div class="seq-arrow" aria-hidden="true">→</div>
+      <div class="seq-step" style="border-color:rgba(224,112,112,0.5);background:rgba(192,57,43,0.06);">
+        <div class="seq-step-num">⚠️</div>
+        <div class="seq-step-label" style="color:#ff6b6b;">Ca × P &gt; 70</div>
+        <div class="seq-step-val">Mineralization threshold</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="callout">
+    <strong>Clinical pearl:</strong> A dog with suppressed PTH, rising phosphorus, and total calcium above 13 mg/dL in the context of rodenticide or supplement exposure is cholecalciferol toxicosis until proven otherwise.
+  </div>
+
+</div>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- SCREEN 2 — DIFFERENTIAL DIAGNOSIS      -->
+<!-- ═══════════════════════════════════════ -->
+<div class="screen" id="screen-2" role="main" aria-label="Differential Diagnosis">
+
+  <div class="screen-tag">Differential Diagnosis</div>
+  <h1>Is It Really Cholecalciferol?</h1>
+  <p class="lead">
+    Hypercalcemia has multiple causes. Use histological findings, lab ratios,
+    and exposure history to rule in or rule out each differential.
+    Click each condition to expand the key differentiator.
+  </p>
+
+  <!-- Histological Pattern -->
+  <div class="card card-accent" style="margin-bottom:20px;">
+    <h3>Histological Pattern — All Suspect Cases</h3>
+    <p style="font-size:13px;color:var(--sage);margin-bottom:12px;">
+      Mineralization in <strong style="color:var(--white);">multiple organs simultaneously</strong>
+      is a hallmark of cholecalciferol toxicosis and strongly narrows the differential.
+    </p>
+    <div class="histo-banner" role="list" aria-label="Affected organs">
+      <div class="histo-organ" role="listitem"><span class="histo-organ-icon" aria-hidden="true">❤️</span> Heart</div>
+      <div class="histo-organ" role="listitem"><span class="histo-organ-icon" aria-hidden="true">🫘</span> Kidney</div>
+      <div class="histo-organ" role="listitem"><span class="histo-organ-icon" aria-hidden="true">🫁</span> Lung</div>
+      <div class="histo-organ" role="listitem"><span class="histo-organ-icon" aria-hidden="true">🥞</span> Pancreas</div>
+      <div class="histo-organ" role="listitem"><span class="histo-organ-icon" aria-hidden="true">🫙</span> Stomach Wall</div>
+    </div>
+  </div>
+
+  <!-- Comparison Table -->
+  <div class="card" style="padding:0;overflow:hidden;margin-bottom:16px;">
+    <div style="padding:16px 20px 8px;">
+      <h3 style="margin-bottom:4px;">Cholecalciferol vs. Ethylene Glycol — Kidney Tissue</h3>
+      <p style="font-size:12px;color:var(--sage-dark);">Both cause renal damage and electrolyte disturbances — kidney tissue ratios are the key differentiator.</p>
+    </div>
+
+    <button
+      class="reveal-prompt"
+      id="revealPrompt"
+      onclick="revealEG()"
+      style="margin:0 16px 12px;"
+      aria-label="Click to reveal ethylene glycol comparison values"
+    >
+      👁 Click to reveal Ethylene Glycol values and compare
+    </button>
+
+    <div class="compare-wrap">
+      <table class="compare-table" aria-label="Comparison of cholecalciferol and ethylene glycol findings">
+        <thead>
+          <tr>
+            <th>Finding</th>
+            <th class="th-chol">Cholecalciferol</th>
+            <th
+              class="th-eg"
+              id="egHeader"
+              onclick="revealEG()"
+              aria-label="Ethylene glycol column — click to reveal values"
+            >
+              Ethylene Glycol ▶
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="td-finding">Kidney Calcium (ppm)</td>
+            <td class="td-chol">2,000–3,000 ppm</td>
+            <td class="eg-cell" id="eg-1">&gt;8,000 ppm</td>
+          </tr>
+          <tr>
+            <td class="td-finding">Ca:P Ratio in Kidney</td>
+            <td class="td-chol">0.4–0.7</td>
+            <td class="eg-cell" id="eg-2">&gt;2.5</td>
+          </tr>
+          <tr>
+            <td class="td-finding">Normal Ca:P Ratio</td>
+            <td class="td-normal">0.1 (baseline)</td>
+            <td class="eg-cell" id="eg-3">0.1 (baseline)</td>
+          </tr>
+          <tr>
+            <td class="td-finding">Oxalate Crystals (urine)</td>
+            <td class="td-normal">Absent</td>
+            <td class="eg-cell" id="eg-4">Present ✓ (pathognomonic)</td>
+          </tr>
+          <tr>
+            <td class="td-finding">PTH Level</td>
+            <td class="td-chol">Low / Suppressed</td>
+            <td class="eg-cell" id="eg-5">Variable / Low</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="callout" style="margin-bottom:20px;">
+    <strong>Key ratio to remember:</strong> Kidney Ca:P of <strong>0.4–0.7</strong> points to cholecalciferol.
+    A ratio <strong>&gt;2.5</strong> points to ethylene glycol. Normal is 0.1.
+  </div>
+
+  <div class="divider"></div>
+
+  <h2 style="margin-bottom:14px;">Other Differentials</h2>
+  <p style="font-size:13px;color:var(--sage-dark);margin-bottom:16px;">
+    Click each condition to reveal the key differentiating feature.
+  </p>
+
+  <div class="ddx-list" role="list">
+
+    <!-- DDX 1 -->
+    <div class="ddx-item" role="listitem" id="ddx-1">
+      <button
+        class="ddx-trigger"
+        onclick="toggleDDX(1)"
+        aria-expanded="false"
+        aria-controls="ddx-body-1"
+        id="ddx-btn-1"
+      >
+        <span class="ddx-icon" aria-hidden="true">🦠</span>
+        <span class="ddx-label">
+          Paraneoplastic Hypercalcemia
+          <span class="ddx-sub">Lymphoma most common in dogs</span>
+        </span>
+        <span class="ddx-chevron" aria-hidden="true">⌄</span>
+      </button>
+      <div class="ddx-body" id="ddx-body-1" role="region">
+        <span class="key-diff-badge">Key Differentiator</span><br>
+        Caused by <strong>parathyroid hormone-related peptide (PTHrP)</strong> secreted by tumors. PTHrP mimics PTH activity but is detected separately on assay panels.<br><br>
+        <strong>How to distinguish:</strong> PTHrP is <span class="highlight">elevated</span> (not PTH itself). Look for evidence of underlying neoplasia — lymphadenopathy, splenomegaly, or abnormal cytology. <span class="warn">No history of toxin exposure.</span> Thoracic and abdominal imaging is essential in any hypercalcemic dog where toxin exposure cannot be confirmed.
+      </div>
+    </div>
+
+    <!-- DDX 2 -->
+    <div class="ddx-item" role="listitem" id="ddx-2">
+      <button
+        class="ddx-trigger"
+        onclick="toggleDDX(2)"
+        aria-expanded="false"
+        aria-controls="ddx-body-2"
+        id="ddx-btn-2"
+      >
+        <span class="ddx-icon" aria-hidden="true">🧬</span>
+        <span class="ddx-label">
+          Primary Hyperparathyroidism
+          <span class="ddx-sub">Parathyroid adenoma or hyperplasia</span>
+        </span>
+        <span class="ddx-chevron" aria-hidden="true">⌄</span>
+      </button>
+      <div class="ddx-body" id="ddx-body-2" role="region">
+        <span class="key-diff-badge">Key Differentiator</span><br>
+        Caused by a functional parathyroid adenoma or hyperplasia. The gland fails to suppress PTH despite high serum calcium — PTH is <strong>inappropriately elevated</strong>.<br><br>
+        <strong>How to distinguish:</strong> PTH is <span class="danger">elevated or inappropriately normal</span> despite hypercalcemia — the opposite of cholecalciferol toxicosis, where PTH is suppressed. Cervical ultrasound may identify a parathyroid mass. <span class="warn">No toxin exposure history.</span>
+      </div>
+    </div>
+
+    <!-- DDX 3 -->
+    <div class="ddx-item" role="listitem" id="ddx-3">
+      <button
+        class="ddx-trigger"
+        onclick="toggleDDX(3)"
+        aria-expanded="false"
+        aria-controls="ddx-body-3"
+        id="ddx-btn-3"
+      >
+        <span class="ddx-icon" aria-hidden="true">🐕</span>
+        <span class="ddx-label">
+          Juvenile / Idiopathic Hypercalcemia
+          <span class="ddx-sub">Seen in young Labradors and other breeds</span>
+        </span>
+        <span class="ddx-chevron" aria-hidden="true">⌄</span>
+      </button>
+      <div class="ddx-body" id="ddx-body-3" role="region">
+        <span class="key-diff-badge">Key Differentiator</span><br>
+        Seen particularly in young <strong>Labrador Retrievers</strong> — the same breed as Buddy. Mechanism is not fully understood; possibly related to PTHrP or dietary influences.<br><br>
+        <strong>How to distinguish:</strong> <span class="warn">Diagnosis of exclusion</span> — rule out toxin exposure, neoplasia, and primary hyperparathyroidism first. PTH and PTHrP may be equivocal. Responds to dietary calcium restriction. <span class="highlight">Buddy's breed makes this a genuine differential alongside the toxicosis history.</span>
+      </div>
+    </div>
+
+    <!-- DDX 4 -->
+    <div class="ddx-item" role="listitem" id="ddx-4">
+      <button
+        class="ddx-trigger"
+        onclick="toggleDDX(4)"
+        aria-expanded="false"
+        aria-controls="ddx-body-4"
+        id="ddx-btn-4"
+      >
+        <span class="ddx-icon" aria-hidden="true">🧪</span>
+        <span class="ddx-label">
+          Ethylene Glycol Toxicosis
+          <span class="ddx-sub">Antifreeze ingestion — renal mineralization</span>
+        </span>
+        <span class="ddx-chevron" aria-hidden="true">⌄</span>
+      </button>
+      <div class="ddx-body" id="ddx-body-4" role="region">
+        <span class="key-diff-badge">Key Differentiator</span><br>
+        Both toxicoses cause renal damage and electrolyte disturbances, but the mechanisms differ. Ethylene glycol forms <strong>calcium oxalate crystals</strong> that deposit in renal tubules — a pathognomonic finding.<br><br>
+        <strong>Kidney tissue analysis:</strong><br>
+        • Kidney Ca: <span class="danger">&gt;8,000 ppm</span> (vs. 2,000–3,000 with cholecalciferol)<br>
+        • Ca:P ratio in kidney: <span class="danger">&gt;2.5</span> (vs. 0.4–0.7 with cholecalciferol)<br>
+        • <span class="highlight">Oxalate crystals on urine microscopy</span> — pathognomonic for EG<br>
+        • History of access to antifreeze
+      </div>
+    </div>
+
+  </div>
+
+  <div class="callout-teal">
+    <strong>Bottom line:</strong> In any hypercalcemic dog or cat, the combination of
+    <strong>toxin exposure history + suppressed PTH + phosphorus rising before calcium</strong>
+    makes cholecalciferol toxicosis your working diagnosis until tissue analysis or a definitive
+    alternate cause proves otherwise.
+  </div>
+
+</div>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- Bottom Navigation                      -->
+<!-- ═══════════════════════════════════════ -->
+<nav class="bottom-nav" aria-label="Module navigation">
+  <button
+    class="nav-btn btn-prev"
+    id="prevBtn"
+    onclick="navigate(-1)"
+    disabled
+    aria-label="Go to previous screen"
+  >
+    ← Back
+  </button>
+
+  <div class="nav-indicator" role="tablist" aria-label="Screen indicator">
+    <div
+      class="nav-dot active"
+      id="dot-1"
+      onclick="goTo(1)"
+      role="tab"
+      tabindex="0"
+      aria-selected="true"
+      aria-label="Screen 1: Diagnosis"
+      onkeydown="if(event.key==='Enter'||event.key===' ')goTo(1)"
+    ></div>
+    <div
+      class="nav-dot"
+      id="dot-2"
+      onclick="goTo(2)"
+      role="tab"
+      tabindex="0"
+      aria-selected="false"
+      aria-label="Screen 2: Differential Diagnosis"
+      onkeydown="if(event.key==='Enter'||event.key===' ')goTo(2)"
+    ></div>
+  </div>
+
+  <button
+    class="nav-btn btn-next"
+    id="nextBtn"
+    onclick="navigate(1)"
+    aria-label="Go to next screen"
+  >
+    Continue →
+  </button>
+</nav>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- JavaScript                             -->
+<!-- ═══════════════════════════════════════ -->
+<script>
+
+  /* ── State ── */
+  let current = 1;
+  const total  = 2;
+
+  /* ── Navigation ── */
+  function goTo(n) {
+    if (n < 1 || n > total) return;
+    document.getElementById(`screen-${current}`).classList.remove('active');
+    document.getElementById(`dot-${current}`).classList.remove('active');
+    document.getElementById(`dot-${current}`).classList.add('done');
+    document.getElementById(`dot-${current}`).setAttribute('aria-selected','false');
+    current = n;
+    document.getElementById(`screen-${current}`).classList.add('active');
+    document.getElementById(`dot-${current}`).classList.remove('done');
+    document.getElementById(`dot-${current}`).classList.add('active');
+    document.getElementById(`dot-${current}`).setAttribute('aria-selected','true');
+    updateNav();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function navigate(dir) { goTo(current + dir); }
+
+  function updateNav() {
+    const prev = document.getElementById('prevBtn');
+    const next = document.getElementById('nextBtn');
+    prev.disabled = current === 1;
+    if (current === total) {
+      next.textContent = '↩ Restart';
+      next.setAttribute('aria-label','Restart module from the beginning');
+      next.onclick = () => goTo(1);
+    } else {
+      next.textContent = 'Continue →';
+      next.setAttribute('aria-label','Go to next screen');
+      next.onclick = () => navigate(1);
+    }
+  }
+
+  /* ── Lab Row Toggle ── */
+  function toggleLab(n) {
+    const expand = document.getElementById(`expand-${n}`);
+    const row    = document.getElementById(`row-${n}`);
+    const isOpen = expand.classList.contains('open');
+    expand.classList.toggle('open');
+    row.setAttribute('aria-expanded', !isOpen);
+    row.classList.toggle('open-row', !isOpen);
+  }
+
+  function keyRow(e, n) {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      toggleLab(n);
+    }
+  }
+
+  /* ── EG Reveal ── */
+  let egRevealed = false;
+
+  function revealEG() {
+    if (egRevealed) return;
+    egRevealed = true;
+
+    [1,2,3,4,5].forEach(i => {
+      document.getElementById(`eg-${i}`).classList.add('revealed');
+    });
+
+    const header = document.getElementById('egHeader');
+    header.textContent = 'Ethylene Glycol';
+    header.classList.add('revealed');
+    header.removeAttribute('onclick');
+
+    document.getElementById('revealPrompt').classList.add('hidden-prompt');
+  }
+
+  /* ── DDX Accordion ── */
+  function toggleDDX(n) {
+    const item = document.getElementById(`ddx-${n}`);
+    const btn  = document.getElementById(`ddx-btn-${n}`);
+    const isOpen = item.classList.contains('open');
+    item.classList.toggle('open');
+    btn.setAttribute('aria-expanded', !isOpen);
+  }
+
+</script>
+</body>
+</html>
+
+							<script>
+                            	
+							</script>
+                        </body>
+                        </html>
+                    
